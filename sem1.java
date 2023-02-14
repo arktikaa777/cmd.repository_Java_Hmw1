@@ -1,5 +1,9 @@
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 
 public class sem1 {
@@ -36,7 +40,7 @@ public class sem1 {
         System.out.print(i + "; ");
         }    
     }*/
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SecurityException, IOException {
         Scanner input = new Scanner(System.in);
         int a;
         int b;   
@@ -64,6 +68,14 @@ public class sem1 {
             System.out.println("your answer is" + (a*b));  
              input.close();
              op.close();
+        
+        Logger logger = Logger.getLogger(sem1.class.getName());
+        FileHandler fh = new FileHandler("log_calculator.txt");
+        logger.addHandler(fh);
+        
+        SimpleFormatter sFormat = new SimpleFormatter();
+        fh.setFormatter(sFormat); 
+        logger.info("calculator");
         }
     }
   
