@@ -1,55 +1,70 @@
-//task 1
+import java.util.Deque;
 import java.util.LinkedList;
-
+//task 1 Reversed Link List
 public class sem4 {
-    static Node head;
+    public static void main(String[] args) {
+       /* Node n1 = new Node(22);
+        Node n2 = new Node(52);
+        Node n3 = new Node(13);
+        Node n4 = new Node(4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        printLinkedList(n1);
+        System.out.println();
+        Node newHead = reverse(n1);
+        printLinkedList(newHead);
+    }
     static class Node {
         int data;
         Node next;
-        Node(int val) {
-            data = val;
-            next = null;
+        Node(int tmp) {
+            data = tmp;
         }
     }
-          
-    /* Function for reversing the linked list */
-    Node reverse_linkedlist(Node node) {
+    static Node reverse(Node node)  {
         Node prev = null;
         Node curr = node;
         Node next = null;
-        while (curr != null) {
+
+        while(curr != null)  {
             next = curr.next;
             curr.next = prev;
             prev = curr;
-            curr = next; 
+            curr = next;
         }
-        node = prev;
-        return node;
+        return prev;
     }
-          
-    // prints the double linked_list
-    void print_LinkedList(Node node) {
-        while (node != null) {
-            System.out.print(node.data + " ");
-            node = node.next;
+    static void printLinkedList (Node head) {
+        while (head != null) {
+            System.out.print(head.data+" ");
+            head = head.next;
         }
-    }
-          
-            // Driver Code
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        list.head = new Node(85);
-        list.head.next = new Node(15);
-        list.head.next.next = new Node(4);
-        list.head.next.next.next = new Node(20);
-          
-        System.out.println("Given Linked List");
-        list.print_LinkedList(head);
-        head = list.reverse_linkedlist(head);
-        System.out.println("");
-        System.out.println("Reversed Linked List ");
-        list.print_LinkedList(head);
-    }
-}
+    */
+    //task 2 dequeue() - возвращает первый элемент из очереди и удаляет его, 
+    //first() - возвращает первый элемент из очереди, не удаляя.
     
+        Deque<Product> Products = new LinkedList<Product>();
+        Product p1 = new Product(1, " Mazda ");
+        Product p2 = new Product(2, " Toyota  ");
+        Product p3 = new Product(3, "Nissan");
+        Product p4 = new Product(4, "BMW ");
 
+        Products.addFirst(p4);
+        Products.addFirst(p2);
+        Products.addLast(p3);
+        Products.addLast(p1);
+        System.out.println(Products);
+
+        Product Head = Products.getFirst();
+        System.out.println("Head is : " +Head);
+        
+        Products.removeFirst();
+        System.out.println(Products);
+
+        
+
+
+        
+    }    
+}
